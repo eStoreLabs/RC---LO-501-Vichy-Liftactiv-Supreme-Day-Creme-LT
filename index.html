@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="et">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vichy</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Spartan:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      #es-vichy.es-vichy {
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 0;
+        color: #2b2a29;
+        font-family: 'Spartan', sans-serif;
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 1.2;
+        max-width: 850px;
+        overflow: hidden;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      h2,
+      h3,
+      h4,
+      h5 {
+        color: #111;
+        font-family: 'Spartan', sans-serif;
+      }
+
+      .es-kv {
+        background: #fff;
+      }
+      .es-kv__images {
+        height: 520px;
+        background: url('assets/images/packshot.jpg') top/cover no-repeat;
+        background-size: contain;
+      }
+      .es-kv__recommendation {
+        display: flex;
+        flex-direction: column;
+      }
+      .es-kv__text {
+        margin: 0 10px;
+        display: flex;
+        justify-content: center;
+        font-size: 13px;
+      }
+      .es-kv__heading {
+        margin-left: 10px;
+        font-weight: 300;
+      }
+      .es-kv__disclaimer {
+        margin: 30px 10px 0 10px;
+        font-size: 8px;
+        text-align: center;
+      }
+      .es-kv__label {
+        -o-object-fit: contain;
+        object-fit: contain;
+      }
+      .es-kv__header {
+        padding: 140px 10px 0 10px;
+        font-size: 16px;
+        font-weight: 300;
+        text-align: center;
+      }
+      .es-kv__animated-items {
+        width: 100%;
+        min-height: 500px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding-top: 30px;
+        opacity: 0;
+        animation: slidedown 0.6s ease forwards;
+        animation-delay: 0.3s;
+      }
+      .es-kv__disc {
+        font-size: 9px;
+        margin: 0;
+        padding: 0;
+        color: inherit;
+        font-family: inherit;
+        font-weight: inherit;
+        line-height: inherit;
+        text-align: center;
+      }
+      .es-kv__photo {
+        position: relative;
+      }
+      .es-kv__img {
+        margin: 0 auto;
+        display: block;
+        max-width: 100%;
+      }
+      .es-kv__img--photo {
+        width: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+      }
+      .es-kv__content {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding-top: 20px;
+        background: url('assets/images/photo.jpg') center/cover no-repeat;
+        min-height: 535px;
+      }
+      .es-kv__title {
+        padding: 32px 30px;
+        color: #fff;
+        font-weight: 300;
+        font-size: 26px;
+        text-transform: uppercase;
+        text-align: right;
+        opacity: 0;
+        animation: slideright 0.6s ease forwards;
+        animation-delay: 0.3s;
+      }
+
+      .es-info {
+        margin: 0 auto;
+        margin-bottom: 32px;
+        padding: 32px 16px;
+        max-width: 812px;
+      }
+      .es-info__border {
+        position: relative;
+        margin-bottom: 32px;
+        padding: 24px 16px;
+      }
+      .es-info__border::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: url('assets/images/border-1.png');
+      }
+      .es-info__border::after {
+        position: absolute;
+        right: 0;
+        content: url('assets/images/border-2.png');
+      }
+      .es-info__title {
+        margin-bottom: 20px;
+        font-weight: 300;
+        font-size: 20px;
+        text-align: center;
+        text-transform: uppercase;
+      }
+      .es-info__title span {
+        display: block;
+        padding-top: 16px;
+        font-weight: 700;
+      }
+      .es-info__desc {
+        max-width: 719px;
+        font-size: 15px;
+        margin: 0;
+        padding: 0;
+        color: inherit;
+        font-family: inherit;
+        font-weight: inherit;
+        text-align: center;
+        line-height: 1.4;
+      }
+      .es-info__desc strong {
+        text-transform: uppercase;
+      }
+      .es-info__text {
+        font-weight: 700;
+        font-size: 14px;
+        margin: 0;
+        padding: 0;
+        color: inherit;
+        font-family: inherit;
+        line-height: inherit;
+        text-align: center;
+      }
+      .es-info__img {
+        margin: 0 auto;
+        display: block;
+        max-width: 100%;
+      }
+      .es-info__features {
+        margin: 0 -8px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .es-info__single {
+        width: 250px;
+        padding: 0 8px;
+      }
+      .es-info__single:not(:last-child) {
+        margin-bottom: 32px;
+      }
+      .es-info__icon {
+        margin-bottom: 16px;
+      }
+
+      .es-use {
+        padding: 0 16px;
+        background: url('assets/images/bg-1.png') no-repeat;
+        background-position: 36% bottom;
+        min-height: 750px;
+      }
+      .es-use__content {
+        margin: 50px auto 0 auto;
+        max-width: 730px;
+      }
+      .es-use__title {
+        font-weight: 700;
+        font-size: 22px;
+        text-transform: uppercase;
+      }
+      .es-use__list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .es-use__item {
+        position: relative;
+        margin-bottom: 16px;
+        padding-left: 24px;
+      }
+      .es-use__item::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: #0079ad;
+        content: '●';
+      }
+
+      .es-banner {
+        margin-bottom: 64px;
+      }
+      .es-banner__border {
+        margin-bottom: 16px;
+        padding: 32px 16px;
+        background: linear-gradient(45deg, #2e4e6f, #0b6e9e);
+      }
+      .es-banner__title {
+        margin-bottom: 24px;
+        color: #fff;
+        font-weight: 700;
+        font-size: 14px;
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 1.4;
+      }
+      .es-banner__container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+      }
+      .es-banner__single {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 16px;
+        min-width: 150px;
+      }
+      .es-banner__single:not(:last-child) {
+        margin-bottom: 24px;
+      }
+      .es-banner__text {
+        margin-top: 5px;
+        color: #fff;
+        font-weight: 500;
+        font-size: 12px;
+        text-align: center;
+      }
+      .es-banner__text--number {
+        margin-bottom: 0;
+        color: #ffffff;
+        font-size: 40px;
+        line-height: 1;
+      }
+      .es-banner__text span {
+        position: relative;
+        top: -8px;
+        font-weight: 700;
+        font-size: 30px;
+      }
+      .es-banner__disclaimer {
+        font-size: 9px;
+        margin: 0;
+        padding: 0;
+        color: inherit;
+        font-family: inherit;
+        font-weight: inherit;
+        line-height: inherit;
+        text-align: center;
+      }
+
+      .es-ingr {
+        margin-bottom: 64px;
+        padding: 0 16px;
+      }
+      .es-ingr__title {
+        margin-bottom: 32px;
+        font-weight: 700;
+        font-size: 22px;
+        margin: 0;
+        padding: 0;
+        color: inherit;
+        font-family: inherit;
+        line-height: inherit;
+        text-align: center;
+      }
+      .es-ingr__container {
+        margin: 0 -24px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0 12px;
+      }
+      .es-ingr__single {
+        padding: 0 12px;
+        max-width: 246px;
+      }
+      .es-ingr__single:not(:last-child) {
+        margin-bottom: 32px;
+      }
+      .es-ingr__image {
+        margin-bottom: 24px;
+      }
+      .es-ingr__img {
+        margin: 0 auto;
+        display: block;
+        max-width: 100%;
+      }
+      .es-ingr__text {
+        font-size: 14px;
+        margin: 0;
+        padding: 0;
+        color: inherit;
+        font-family: inherit;
+        font-weight: inherit;
+        line-height: inherit;
+        text-align: center;
+      }
+
+      .es-benefits {
+        padding: 0 16px;
+        background: url('assets/images/bg-3.jpg') no-repeat;
+        background-position: 90% bottom;
+        min-height: 772px;
+      }
+      .es-benefits__title {
+        margin-bottom: 40px;
+        font-weight: 700;
+        font-size: 22px;
+        text-align: center;
+      }
+      .es-benefits__container {
+        margin: 0 -16px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 0 8px;
+      }
+      .es-benefits__disclaimer {
+        margin-top: 50px;
+        font-size: 9px;
+        text-align: center;
+      }
+      .es-benefits__single {
+        width: 240px;
+        padding: 0 8px;
+      }
+      .es-benefits__single:not(:last-child) {
+        margin-bottom: 32px;
+      }
+      .es-benefits__img {
+        margin: 0 auto;
+        display: block;
+        max-width: 100%;
+      }
+      .es-benefits__icon {
+        margin-bottom: 16px;
+      }
+      .es-benefits__text {
+        font-size: 13px;
+        margin: 0;
+        padding: 0;
+        color: inherit;
+        font-family: inherit;
+        font-weight: inherit;
+        line-height: inherit;
+        text-align: center;
+      }
+
+      .es-rev-banner {
+        margin-bottom: 64px;
+      }
+      .es-rev-banner__border {
+        margin-bottom: 32px;
+        background: linear-gradient(45deg, #2e4e6f, #0b6e9e);
+      }
+      .es-rev-banner__content {
+        padding: 32px 16px;
+        max-width: 390px;
+      }
+      .es-rev-banner__title {
+        margin-top: 0;
+        margin-bottom: 24px;
+        color: #fff;
+        font-weight: 700;
+        font-size: 22px;
+        text-transform: uppercase;
+        line-height: 1.4;
+      }
+      .es-rev-banner__list {
+        margin: 0;
+        padding: 0;
+        padding-left: 16px;
+      }
+      .es-rev-banner__item {
+        color: #fff;
+        font-size: 12px;
+      }
+      .es-rev-banner__item:not(:last-child) {
+        margin-bottom: 16px;
+      }
+
+      .es-cross {
+        padding: 0 16px;
+      }
+      .es-cross__title {
+        margin-bottom: 40px;
+        font-weight: 700;
+        font-size: 22px;
+        text-transform: uppercase;
+        text-align: center;
+      }
+      .es-cross__container {
+        margin: 0 -16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 8px;
+        flex-flow: column;
+      }
+      .es-cross__photo--desktop {
+        display: none;
+      }
+      .es-cross__packshot {
+        position: relative;
+        z-index: 1;
+      }
+      .es-cross__packshot--1::before {
+        position: absolute;
+        z-index: -1;
+        top: -50px;
+        left: -70px;
+        color: #ebebeb;
+        font-family: 'Roboto';
+        font-size: 230px;
+        content: '1';
+        line-height: 1;
+      }
+      .es-cross__packshot--2::before {
+        position: absolute;
+        z-index: -1;
+        top: -50px;
+        left: -60px;
+        color: #ebebeb;
+        font-family: 'Roboto';
+        font-size: 230px;
+        content: '2';
+        line-height: 1;
+      }
+      .es-cross__packshot--3::before {
+        position: absolute;
+        z-index: -1;
+        top: -50px;
+        left: -60px;
+        color: #ebebeb;
+        font-family: 'Roboto';
+        font-size: 230px;
+        content: '3';
+        line-height: 1;
+      }
+      .es-cross__img {
+        margin: 0 auto;
+        display: block;
+        max-width: 100%;
+      }
+      .es-cross__single {
+        margin-bottom: 32px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 8px;
+        max-width: 250px;
+        flex-flow: column;
+      }
+      .es-cross__single:hover .es-cross__icon {
+        transform: scale(1.2);
+      }
+      .es-cross__wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-flow: column;
+        flex-grow: 1;
+      }
+      .es-cross__subtitle {
+        margin-bottom: 16px;
+        font-size: 16px;
+        text-align: center;
+      }
+      .es-cross__subtitle strong {
+        display: block;
+      }
+      .es-cross__subtitle span {
+        font-size: 15px;
+        font-weight: 300;
+      }
+      .es-cross__text {
+        margin-bottom: 16px;
+        font-size: 12px;
+        text-align: center;
+      }
+      .es-cross__link {
+        margin-bottom: 16px;
+        border: 1px solid #0079ad;
+        padding: 6px 24px;
+        color: #fff;
+        font-weight: 700;
+        font-size: 10px;
+        background: #0079ad;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+      }
+      .es-cross__link:hover {
+        color: #0079ad;
+        background: #fff;
+      }
+
+      @media screen and (min-width: 425px) {
+        .es-kv__header {
+          padding: 180px 10px 0 10px;
+        }
+      }
+      @media screen and (min-width: 560px) {
+        .es-cross__container {
+          flex-wrap: wrap;
+          align-items: stretch;
+          flex-flow: row;
+        }
+        .es-cross__photo--desktop {
+          display: block;
+        }
+        .es-cross__packshot {
+          display: none;
+        }
+        .es-benefits {
+          min-height: 720px;
+        }
+      }
+      @media screen and (min-width: 720px) {
+        .es-ingr__single {
+          width: 24%;
+        }
+        .es-kv {
+          display: flex;
+        }
+        .es-kv__images {
+          height: auto;
+          display: flex;
+          justify-content: center;
+          flex-flow: column;
+          flex: 1;
+          flex-basis: 50%;
+          background-size: cover;
+        }
+        .es-kv__content {
+          height: 100%;
+        }
+        .es-kv__photo {
+          order: -1;
+          flex: 1;
+          flex-basis: 50%;
+        }
+      }
+      @media screen and (min-width: 768px) {
+        .es-info__border {
+          margin-bottom: 100px;
+        }
+        .es-info__single {
+          width: 250px;
+        }
+        .es-use {
+          margin-top: -200px;
+          margin-bottom: 0px;
+          display: flex;
+          align-items: center;
+          background-position: center;
+          min-height: 763px;
+        }
+        .es-use__content {
+          margin-top: 115px;
+          margin-right: -24px;
+          margin-left: auto;
+          padding-top: 0;
+          max-width: 300px;
+        }
+        .es-banner {
+          margin-bottom: 100px;
+          display: flex;
+          align-items: center;
+          background: url('assets/images/bg-2.jpg') no-repeat center;
+          min-height: 326px;
+        }
+        .es-banner__content {
+          margin-bottom: 16px;
+          max-width: 590px;
+        }
+        .es-banner__container {
+          flex-direction: row;
+          justify-content: space-around;
+        }
+        .es-banner__border {
+          margin-left: 100px;
+          width: 500px;
+        }
+        .es-banner__single:not(:last-child) {
+          margin-bottom: 0;
+        }
+        .es-ingr {
+          margin-bottom: 0;
+        }
+        .es-ingr__title {
+          margin-bottom: 35px;
+        }
+        .es-ingr__container {
+          margin: 0 auto;
+          justify-content: space-between;
+          padding: 0;
+          max-width: 730px;
+        }
+        .es-ingr__single {
+          padding: 0;
+          max-width: 230px;
+        }
+        .es-ingr__single:not(:last-child) {
+          margin-bottom: 0;
+        }
+        .es-rev-banner {
+          margin-bottom: 100px;
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          background: url('assets/images/bg-4.jpg') no-repeat center;
+          min-height: 350px;
+        }
+        .es-rev-banner__border {
+          margin-right: 50px;
+          margin-bottom: -44px;
+        }
+        .es-rev-banner__content {
+          padding: 32px 30px;
+        }
+        .es-rev-banner__single:first-child {
+          margin-bottom: 0;
+        }
+      }
+      @media screen and (min-width: 920px) {
+        .es-use {
+          background-position: 32%;
+        }
+        .es-use__content {
+          margin-top: 125px;
+          max-width: 350px;
+        }
+      }
+      @media screen and (min-width: 820px) {
+        .es-info__features {
+          margin-left: -50px;
+          width: calc(100% + 100px);
+        }
+      }
+      @media screen and (min-width: 768px) {
+        .es-benefits {
+          margin-top: -50px;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          background-position: center;
+          min-height: 502px;
+        }
+        .es-benefits__container {
+          flex-direction: row;
+          flex-wrap: wrap;
+          align-items: flex-start;
+        }
+        .es-benefits__disclaimer {
+          margin-top: 0;
+          transform: translateY(140px);
+        }
+        .es-benefits__content {
+          max-width: 523px;
+        }
+        .es-benefits__single {
+          flex: 1 50%;
+          max-width: none;
+          max-width: 168px;
+        }
+      }
+      @media screen and (min-width: 880px) {
+        .es-benefits__content {
+          margin-left: 40px;
+        }
+      }
+      @keyframes slidedown {
+        from {
+          opacity: 0;
+          transform: translateY(-32px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes slideright {
+        from {
+          opacity: 0.3;
+          transform: translateX(-100px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      #es-vichy.es-vichy .es-cross__single {
+        max-width: 250px;
+      }
+
+      @media screen and (min-width: 768px) {
+        #es-vichy.es-vichy .es-banner__content {
+          padding-top: 48px;
+        }
+        #es-vichy.es-vichy .es-ingr__single:not(:last-child) {
+          margin-bottom: 32px;
+        }
+        #es-vichy.es-vichy .es-ingr__container {
+          justify-content: space-between;
+        }
+      }
+      #es-vichy.es-vichy .es-cross__packshot--1 {
+        max-width: 128px;
+      }
+
+      #es-vichy.es-vichy .es-cross__packshot--2 {
+        max-width: 175px;
+      }
+
+      #es-vichy.es-vichy .es-cross__packshot--3 {
+        max-width: 120px;
+      }
+
+      .es-ingr__image {
+        position: relative;
+      }
+      .es-ingr__label {
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        padding: 14px 8px;
+        font-weight: 700;
+        font-size: 12px;
+        background: rgba(255, 255, 255, 0.66);
+        transform: translate(-50%, -50%);
+        text-align: center;
+      } /*# sourceMappingURL=style.css.map */
+    </style>
+  </head>
+
+  <body>
+    <div class="es-vichy" id="es-vichy">
+      <section class="es-kv">
+        <div class="es-kv__images">
+          <div class="es-kv__packshot">
+            <div class="es-kv__animated-items">
+              <img
+                src="assets/images/bottle.png"
+                alt=""
+                class="es-kv__animated-item"
+              />
+            </div>
+            <div class="es-kv__recommendation"></div>
+          </div>
+        </div>
+        <div class="es-kv__photo">
+          <div class="es-kv__content">
+            <h2 class="es-kv__title">
+              UŽTIKRINA GREITĄ<br />
+
+              LIFTINGO EFEKTĄ
+            </h2>
+          </div>
+        </div>
+      </section>
+
+      <section class="es-info">
+        <div class="es-info__border">
+          <h3 class="es-info__title">
+            KIEKVIENĄ DIENĄ ODA YRA NUOLAT VEIKIAMA STRESO IR IŠORINIŲ VEIKSNIŲ,
+            KURIE GILINA SENĖJIMO POŽYMIUS, ATSIRANDANČIUS DIENOS EIGOJE.
+          </h3>
+          <p class="es-info__desc">
+            Išbandykite priešraukšlinį dieninį kremą
+            <strong>LIFTACTIV SUPREME</strong>, kuris užtikrina greitą liftingo
+            efektą. Sudėtyje esančios aktyviosios sudedamosios medžiagos
+            veiksmingai mažina dienos eigoje ryškėjančius odos senėjimo
+            požymius, tokius kaip raukšlelės, sumažėjęs stangrumas ar mimikos
+            raukšlės.
+          </p>
+        </div>
+        <div class="es-info__features">
+          <div class="es-info__single">
+            <div class="es-info__icon">
+              <img src="assets/images/check.png" class="es-info__img" alt="" />
+            </div>
+            <p class="es-info__text">
+              Poveikis nuo pirmojo panaudojimo: greitas raukšlių sumažėjimo
+              efektas ir geresnė odos išvaizda.
+            </p>
+          </div>
+          <div class="es-info__single">
+            <div class="es-info__icon">
+              <img src="assets/images/check.png" class="es-info__img" alt="" />
+            </div>
+            <p class="es-info__text">
+              Po mėnesio naudojimo matomai sumažėja giliosios raukšlės, o oda
+              tampa stangresnė.
+            </p>
+          </div>
+          <div class="es-info__single">
+            <div class="es-info__icon">
+              <img src="assets/images/check.png" class="es-info__img" alt="" />
+            </div>
+            <p class="es-info__text">
+              Veidas atrodo pailsėjęs, <br />o jo bruožai – atjaunėję.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="es-use">
+        <div class="es-use__content">
+          <h3 class="es-use__title">NAUDOKITE, KAI</h3>
+          <ul class="es-use__list">
+            <li class="es-use__item">
+              Jūsų oda ima prarasti stangrumą <br />ir joje ima rastis raukšles,
+            </li>
+            <li class="es-use__item">
+              Jūsų oda yra normalaus arba<br />
+              mišraus tipo,
+            </li>
+            <li class="es-use__item">
+              Norite apsaugoti odą nuo<br />
+              kenksmingo išorės veiksnių poveikio.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="es-banner">
+        <div class="es-banner__content">
+          <div class="es-banner__border">
+            <h3 class="es-banner__title">
+              RAUKŠLIŲ MAŽINIMO VEIKSMINGUMAS PATVIRTINTAS <br />KLINIKINIU
+              TYRIMU
+            </h3>
+            <div class="es-banner__container">
+              <div class="es-banner__single">
+                <p class="es-banner__text es-banner__text--number">
+                  +31<span>%</span>
+                </p>
+                <p class="es-banner__text">STANGRUMO<sup>1</sup></p>
+              </div>
+              <div class="es-banner__single">
+                <p class="es-banner__text es-banner__text--number">
+                  -9,5<span>%</span>
+                </p>
+                <p class="es-banner__text">RAUKŠLIŲ APLINK LŪPAS<sup>2</sup></p>
+              </div>
+            </div>
+          </div>
+          <p class="es-banner__disclaimer">
+            <sup>1</sup>Instrumentinis tyrimas, 40 moterų po 4 valandų.<br />
+            <sup>2</sup>Klinikinis vertinimas, 42 moterys po 4 savaičių.
+          </p>
+        </div>
+      </section>
+
+      <section class="es-ingr">
+        <h3 class="es-ingr__title">
+          STIPRI FORMULĖ SU AKTYVIOSIOMIS MEDŽIAGOMS
+        </h3>
+        <div class="es-ingr__container">
+          <div class="es-ingr__single">
+            <div class="es-ingr__image">
+              <p class="es-ingr__label">5%&nbsp;RAMNOZĖ</p>
+              <img src="assets/images/ingr-1.png" alt="" class="es-ingr__img" />
+            </div>
+            <p class="es-ingr__text">
+              Natūralios kilmės augalinis cukrus – pripažinta kovos su senėjimu
+              medžiaga - kuris padeda išlyginti ir sustangrinti odą.
+            </p>
+          </div>
+          <div class="es-ingr__single">
+            <div class="es-ingr__image">
+              <p class="es-ingr__label">NEOHESPERIDINAS</p>
+              <img src="assets/images/ingr-2.png" alt="" class="es-ingr__img" />
+            </div>
+            <p class="es-ingr__text">
+              Sudedamoji medžiaga, pasižymint stipriomis antioksidacinėmis
+              savybėmis. Padeda išlyginti odą ir suvienodinti jos spalvą.
+            </p>
+          </div>
+          <div class="es-ingr__single">
+            <div class="es-ingr__image">
+              <p class="es-ingr__label">
+                KOMPLEKSAS&nbsp;DAY&nbsp;PROOF<br />
+                [ADENOZINAS + KOFEINAS]
+              </p>
+              <img src="assets/images/ingr-3.png" alt="" class="es-ingr__img" />
+            </div>
+            <p class="es-ingr__text">
+              Kovoja su kasdieniu odos senėjimu. Padeda sustangrinti odą,
+              išlyginti smulkias raukšleles ir suvienodinti odos spalvą.
+            </p>
+          </div>
+          <div class="es-ingr__single">
+            <div class="es-ingr__image">
+              <p class="es-ingr__label">
+                VICHY<br />
+                VULKANINIS<br />
+                VANDUO
+              </p>
+              <img src="assets/images/ingr-4.png" alt="" class="es-ingr__img" />
+            </div>
+            <p class="es-ingr__text">
+              Sudėtyje turi 15 vertingų mineralų. Palaiko natūralius odos
+              apsauginius mechanizmus.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="es-benefits">
+        <div class="es-benefits__content">
+          <h3 class="es-benefits__title">PUIKAUS TOLERAVIMO GARANTIJA</h3>
+          <div class="es-benefits__container">
+            <div class="es-benefits__single">
+              <div class="es-benefits__icon">
+                <img
+                  src="assets/images/icon-1.png"
+                  alt=""
+                  class="es-benefits__img"
+                />
+              </div>
+              <p class="es-benefits__text">Hipoalerginė formulė</p>
+            </div>
+            <div class="es-benefits__single">
+              <div class="es-benefits__icon">
+                <img
+                  src="assets/images/icon-2.png"
+                  alt=""
+                  class="es-benefits__img"
+                />
+              </div>
+              <p class="es-benefits__text">Ištirtas prižiūrint dermatologams</p>
+            </div>
+            <div class="es-benefits__single">
+              <div class="es-benefits__icon">
+                <img
+                  src="assets/images/icon-3.png"
+                  alt=""
+                  class="es-benefits__img"
+                />
+              </div>
+              <p class="es-benefits__text">
+                Tinkamas<br />
+                jautriai odai
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="es-rev-banner">
+        <div class="es-rev-banner__border">
+          <div class="es-rev-banner__content">
+            <h3 class="es-rev-banner__title">NAUDOJIMO BŪDAS</h3>
+            <ol class="es-rev-banner__list">
+              <li class="es-rev-banner__item">
+                Nuvalykite ir nusausinkite veido odą.
+              </li>
+              <li class="es-rev-banner__item">
+                Lengvai masažuodami, paskirstykite <br />produktą ant veido.
+              </li>
+              <li class="es-rev-banner__item">
+                Naudokite kiekvieną rytą, vieną arba <br />po serumo.
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="es-cross">
+        <h3 class="es-cross__title">PRIEŽIŪROS RUTINA</h3>
+        <div class="es-cross__photo es-cross__photo--desktop">
+          <img src="assets/images/packshots.png" alt="" class="es-cross__img" />
+        </div>
+        <div class="es-cross__container">
+          <div class="es-cross__single">
+            <div class="es-cross__packshot es-cross__packshot--1">
+              <img
+                src="assets/images/cross-1.png"
+                alt=""
+                class="es-cross__img"
+              />
+            </div>
+            <h4 class="es-cross__subtitle">
+              <strong>LIFTACTIV SUPREME </strong
+              ><span>H.A. EPIDERMIC FILLER</span>
+            </h4>
+            <div class="es-cross__wrapper">
+              <p class="es-cross__text">
+                Koncentruotas serumas nuo raukšlių veidui ir sričiai aplink akis
+                net su 1,5% grynos hialurono rūgšties.
+              </p>
+              <a href="#" target="_blank" class="es-cross__link">tutvu</a>
+            </div>
+          </div>
+          <div class="es-cross__single">
+            <div class="es-cross__packshot es-cross__packshot--2">
+              <img
+                src="assets/images/cross-2.png"
+                alt=""
+                class="es-cross__img"
+              />
+            </div>
+            <h4 class="es-cross__subtitle">
+              <strong>LIFTACTIV SUPREME</strong><br />
+            </h4>
+            <div class="es-cross__wrapper">
+              <p class="es-cross__text">
+                Dieninis kremas, kuris užtikrina greitą liftingo efektą.
+              </p>
+              <a href="#" target="_blank" class="es-cross__link">tutvu</a>
+            </div>
+          </div>
+          <div class="es-cross__single">
+            <div class="es-cross__packshot es-cross__packshot--3">
+              <img
+                src="assets/images/cross-3.png"
+                alt=""
+                class="es-cross__img"
+              />
+            </div>
+            <h4 class="es-cross__subtitle">
+              <strong>CAPITAL SOLEIL</strong
+              ><span>UV-AGE&nbsp;DAILY&nbsp;SPF&nbsp;50+</span>
+            </h4>
+            <div class="es-cross__wrapper">
+              <p class="es-cross__text">
+                Fluidas nuo šviesos sukeliamo odos senėjimo, užtikrinantis
+                padidintą apsaugą nuo UVA ir UVB spindulių.
+              </p>
+              <a href="#" target="_blank" class="es-cross__link">tutvu</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
